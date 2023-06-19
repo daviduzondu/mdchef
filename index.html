@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/default.min.css">
+  <title>MDChef</title>
+</head>
+
+<body>
+  <main id="app">
+    <header>
+      <h3>Markdown Chef</h3>
+      <h6 id="subtitle">A simple Markdown to HTML converter</h6>
+    </header>
+    <div id="input-areas">
+      <textarea type="input" class="textfield" placeholder="Input goes here..." autocomplete="off" spellcheck="false"
+        autofocus wrap="hard"></textarea>
+      <div class="output-container">
+        <div class="controls">
+          <div>
+            <input type="checkbox" class="preview" />Preview
+          </div>
+          <button class="copy">Copy All</button>
+        </div>
+        <pre class="textfield" id="output"><code class="language-html">Output appears here...</code></pre>
+        <div class="textfield hidden" id="preview">Output appears here...</div>
+      </div>
+    </div>
+  </main>
+  <script type="module" src="/main.js"></script>
+</body>
+
+</html>

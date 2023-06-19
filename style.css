@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=Sarabun:wght@300;400&display=swap');
+
+body{
+  background-color: black;
+  color:white;
+  height: 100vh;
+  overflow: hidden;
+}
+
+* {
+  font-family: 'Sarabun', sans-serif;
+  margin: 0;
+}
+
+#app {
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 9% 91%;
+  /* grid-template-rows: 15% 85%; */
+}
+
+#input-areas{
+  display: grid;
+  grid-template-columns: 50% 50%;
+  gap:10px;
+  margin:10px 10px;
+}
+
+.textfield{
+  outline: none;
+  border: solid 1px;
+  border-radius: 10px;
+  padding:10px;
+  overflow-y: auto;
+  color:rgb(255, 255, 255);
+  background-color: rgb(4, 0, 36);
+  max-height: 85vh;
+}
+
+#output{
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px;
+  white-space: break-spaces;
+  /* flex: 1; */
+}
+
+.textfield:nth-child(1){
+  resize: none;
+}
+
+header {
+  margin:10px 10px 10px 10px;
+}
+
+
+.output-container{
+  display: grid;
+}
+
+.controls{
+  position: absolute;
+  top:46px;
+  right: 0;
+  /* background-color: rgba(0, 0, 0, 0.437); */
+  user-select: none;
+  font-size: 12px;
+  display: flex;
+  gap:10px;
+  align-items: center;
+  padding: 1px;
+}
+
+.controls > div:first-child{
+  display: flex;
+  gap:5px;
+}
+
+.hidden {
+  display: none;
+}
+
+#preview{
+  font-size: smaller;
+  /* color: */
+  overflow-x: hidden;
+  /* word-break: break-all; */
+  overflow-wrap: break-word;
+}
+
+pre {
+  /* white-space: break-spaces; */
+  overflow: auto;
+  background-color: rgba(37, 24, 140, 0.701);
+  border-radius: 10px;
+  padding:10px;
+}
+code{
+  font-family: monospace;
+}
+
+pre:not(pre[id*="output"]){
+  /* color:red; */
+  margin:10px 0px 10px 0px;
+}
+
+
+p{
+  margin:10px 0px 10px 0px;
+}
