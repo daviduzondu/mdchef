@@ -1,5 +1,5 @@
 # MDChef
-MDChef is a simple Markdown to HTML converter than anyone can use. Just visit the (website)[https://] and paste your markdown code.
+MDChef is a simple Markdown to HTML converter than anyone can use. Just visit the [website](https://mdchef.netlify.app) and paste your markdown code.
 
 ## How to run your own instance of the project
 - Make sure you have Yarn installed.
