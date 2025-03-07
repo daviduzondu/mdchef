@@ -7,57 +7,60 @@ let preview = document.querySelector("#preview");
 let copy = document.querySelector(".copy")
 
 marked.use({
-  headerIds: false,
-  mangle: false
+ headerIds: false,
+ mangle: false
 })
 input.value = JSON.parse(localStorage.getItem(`lastContent`))
-input.addEventListener("input", () => {
-  render();
-  localStorage.setItem("lastContent", JSON.stringify(input.value));
+input.addEventListener("input", (e) => {
+ render();
+ console.log(e.target.value)
+ document.querySelector(".count").innerText = e.target.value.trim()
+  .split(/\s+/).filter(word => word.length > 0).length;
+ localStorage.setItem("lastContent", JSON.stringify(input.value));
 })
 
 previewButton.addEventListener('input', () => {
-  render();
+ render();
 })
 
 copy.addEventListener('click', () => {
-  copyText()
+ copyText()
 })
 
 function render() {
-  if (handleOutput() === 1) {
-    output.classList.add("hidden")
-    preview.classList.remove("hidden")
-    preview.innerHTML = marked.parse(input.value);
-  } else {
-    preview.classList.add("hidden")
-    output.classList.remove("hidden")
-    output.innerText = marked.parse(input.value);
-  }
+ if (handleOutput() === 1) {
+  output.classList.add("hidden")
+  preview.classList.remove("hidden")
+  preview.innerHTML = marked.parse(input.value);
+ } else {
+  preview.classList.add("hidden")
+  output.classList.remove("hidden")
+  output.innerText = marked.parse(input.value);
+ }
 }
 
 function handleOutput() {
-  if (previewButton.checked === true) {
-    return 1
-  } else {
-    return 0
-  }
+ if (previewButton.checked === true) {
+  return 1
+ } else {
+  return 0
+ }
 }
 
 async function copyText() {
-  let text = output.innerText;
-  try {
-    await navigator.clipboard.writeText(text);
-    alert('Copied to clipboard');
-  } catch (err) {
-    alert('Failed to copy: ', err);
-  }
+ let text = output.innerText;
+ try {
+  await navigator.clipboard.writeText(text);
+  alert('Copied to clipboard');
+ } catch (err) {
+  alert('Failed to copy: ', err);
+ }
 }
 
 render();
 
 window.addEventListener("DOMContentLoaded", () => {
-  input.setSelectionRange(input.value.length, input.value.length);
-  input.blur()
-  input.focus()
+ input.setSelectionRange(input.value.length, input.value.length);
+ input.blur()
+ input.focus()
 })
