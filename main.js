@@ -11,6 +11,9 @@ marked.use({
  mangle: false
 })
 input.value = JSON.parse(localStorage.getItem(`lastContent`))
+document.querySelector(".count").innerText = input.value.trim()
+  .split(/\s+/).filter(word => word.length > 0).length;
+
 input.addEventListener("input", (e) => {
  render();
  console.log(e.target.value)
